@@ -78,19 +78,19 @@
         		<div class="ed-item  s-1-1 lg-1-3">
         		    <label>Tipo Documento:</label>
         		    <br>
-        		    <select class="form-control form-control-sm">
-        		    	<option>DNI</option>
-        		    	<option>RUC</option>
+        		    <select class="form-control form-control-sm" id="documento">
+        		    	<option value="DNI">DNI</option>
+        		    	<option value ="RUC">RUC</option>
         		    </select>
 				</select>    			
         		</div>
         		<div class="ed-item s-1-1 lg-1-3">
         			<label>Nro. de Documento:</label>
-        			<input class="form-control form-control-sm" type="text">
+        			<input class="form-control form-control-sm" type="text" id="nro_doc">
         		</div>
         		<div class="ed-item s-1-1 lg-1-3">
         			<label>Nombre del Cliente:</label>
-        			<input class="form-control form-control-sm" type="text">
+        			<input class="form-control form-control-sm" type="text" id="nom_cli">
         		</div>
     		</div>
 		</div>
@@ -102,7 +102,7 @@
 		<div class="ed-item s-1-1 lg-90">
 			<label>Dirección:</label>
 			<div class="ed-item ed-container">				  
-        	 <input class="form-control form-control-sm" type="text">	
+        	 <input class="form-control form-control-sm" type="text" id="dir_cli">	
         
     		</div>
 		</div>
@@ -117,7 +117,7 @@
 				<div class="ed-item  s-1-1 lg-1-3">
 				</div>
 				<div class="ed-item  s-1-1 lg-1-3">
-					<button type="button" class="btn btn-warning btn-block" data-toggle="modal" data-target="#modal">Enviar Datos</button>							
+					<button type="button" class="btn btn-warning btn-block" data-toggle="modal" data-target="#modal" onclick="enviar()">Enviar Datos</button>							
 				</div>
 				<div class="ed-item  s-1-1 lg-1-3">
 				</div>	
@@ -137,7 +137,15 @@
 			  </button>
 			</div>
 			<div class="modal-body">
-			  <p>Aqui vemos los datos ingresados.</p>
+			  <!--<p>Aqui vemos los datos ingresados.</p>-->
+			  <label>Tipo de Documento:</label>
+			  <p id = "tipo_doc_get"></p>
+			  <label>Numero de Documento:</label>
+			  <p id = "nro_doc_get"></p>
+			  <label>Nombre del Cliente:</label>
+			  <p id = "nom_cliente_get"></p>
+			  <label>Direccion del Cliente:</label>
+			  <p id = "dir_cliente_get"></p>
 			</div>
 			
 		  </div>
@@ -150,5 +158,20 @@
 <!--<iframe src="http://www.antofernandez.com/files/fixed/index.html" width="100%" style="border: none; position: fixed; width: 100%; bottom: 0; z-index:50" height="50">
 </iframe>
 -->
+<script>
+	function enviar()
+	{
+	var _tipo_doc = document.getElementById("documento").value;	
+	var _nro_doc = document.getElementById("nro_doc").value;
+	var _nom_cli = document.getElementById("nom_cli").value;
+	var _dir_cli = document.getElementById("dir_cli").value;
+	//console.log(_doc_cli);
+	document.getElementById("tipo_doc_get").innerText = _tipo_doc;
+	document.getElementById("nro_doc_get").innerText = _nro_doc;
+	document.getElementById("nom_cliente_get").innerText = _nom_cli;
+	document.getElementById("dir_cliente_get").innerText = _dir_cli;
+	}
+	
+</script>
 </body>
 </html>
